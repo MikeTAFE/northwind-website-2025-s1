@@ -9,12 +9,5 @@
   
   <?= $content ?? 'NO CONTENT - $content not defined' ?>
 
-  <!-- Some comment in the layout file -->
-
-  <div class="random-content">
-    <h1>Random content</h1>
-    <p>This is some really random content... I have no idea why it's here!  🤷‍♀️</p>
-  </div>
-
 </body>
 </html>
