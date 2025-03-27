@@ -9,5 +9,7 @@
   
   <?= $content ?? 'NO CONTENT - $content not defined' ?>
 
+  <!-- Some comment in the layout file -->
+
 </body>
 </html>
