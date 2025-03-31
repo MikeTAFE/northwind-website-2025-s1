@@ -9,6 +9,17 @@ body {
   color: white;
 }
 
+a {
+  text-decoration: none;
+  color: #00aced;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+  color: #0b6a8c;
+}
+
 .site-wrapper {
   max-width: 800px;
   margin: 10px auto;
@@ -30,9 +41,34 @@ body {
   color: #00aced;
 }
 
-.main-nav {}
+.main-nav-container {}
 
-.main-nav {}
+.main-nav > ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.2em;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.main-nav > ul > li > a {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  background-color: #00aced;
+  color: white;
+}
+
+.main-nav > ul > li > a:is(:hover, :focus) {
+  background-color: #0b6a8c;
+  color: white;
+  text-decoration: none;
+}
+
+.main-nav > ul > li.active > a {
+  border-bottom: 3px solid #ff690c;
+}
 
 .main-content {
   padding: 10px;
