@@ -10,7 +10,7 @@
   include_once "templates/_indexPage.html.php";
 
   // Stop output buffering - store output into the $content variable
-  $contentzzz = ob_get_clean();
+  $content = ob_get_clean();
 
   // Include the main layout template
   include_once "templates/_layout.html.php";
