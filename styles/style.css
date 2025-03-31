@@ -50,3 +50,16 @@ body {
   font-size: 0.8em;
   font-style: italic;
 }
+
+
+
+
+.service-list dt {
+  margin: 2em 0 0.5em;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+}
+
+.service-list dd {
+  margin-left: 1em;
+}
