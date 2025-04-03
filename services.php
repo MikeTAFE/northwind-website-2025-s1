@@ -1,5 +1,8 @@
 <?php
 
+  // Common includes for main PHP pages (controllers)
+  require_once "includes/common.php";
+
   // Config
   $title = "Services";
 
