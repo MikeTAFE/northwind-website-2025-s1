@@ -99,3 +99,53 @@ a:focus {
 .service-list dd {
   margin-left: 1em;
 }
+
+
+
+form fieldset {
+  border: 1px solid #999;
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.form-row {
+  margin: 0.5em 0;
+}
+
+input, button, select, textarea {
+  font-size: 1em;
+}
+
+button {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  border: none;
+  border-radius: 5px;
+  background-color: #00aced;
+  color: white;
+}
+
+
+/* Message styling */
+
+.error-summary {
+  margin: 1em 0;
+  padding: 0.5em;
+  border: 1px solid #8f080874;
+  border-radius: 5px;
+  color: #8f0808;
+  background-color: #8f080827;
+  font-style: italic;
+}
+
+.error-message {
+  color: #8f0808;
+  font-style: italic;
+}
+
+.success-message {
+  color: #088f08;
+  font-style: italic;
+}
+
+
