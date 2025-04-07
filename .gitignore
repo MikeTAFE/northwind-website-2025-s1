@@ -1,0 +1,5 @@
+# Normally you would ignore the `/vendor/` Composer directory
+#/vendor/
+
+# Ignore the `/includes/secrets.php` file (normally you'd use a `.env` file)
+/includes/secrets.php
