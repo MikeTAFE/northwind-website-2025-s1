@@ -87,6 +87,14 @@
        * Option 2: Send an email
        */
 
+      // Encode values safely for output in HTML (email content and confirmation page)
+      $firstName = htmlspecialchars($firstName);
+      $lastName = htmlspecialchars($lastName);
+      $email = htmlspecialchars($email);
+      $course = htmlspecialchars($course);
+      $enrolmentMode = htmlspecialchars($enrolmentMode);
+      $comments = htmlspecialchars($comments);
+
       // Build email
       $toEmail = "michael.kirkwood-smith3@tafensw.edu.au";
       $subject = "Northwind Website registration form submission";
@@ -94,12 +102,12 @@
       <h1>Northwind Website registration form submission</h1>
       <p>The Northwind Website registration form has been filled in.</p>
       <ul>
-        <li>First Name: $htmlFirstName</li>
-        <li>Last Name: $htmlLastName</li>
-        <li>Email: $htmlEmail</li>
-        <li>Course: $htmlCourse</li>
-        <li>Enrolment Mode: $htmlEnrolmentMode</li>
-        <li>Comments: $htmlComments</li>
+        <li>First Name: $firstName</li>
+        <li>Last Name: $lastName</li>
+        <li>Email: $email</li>
+        <li>Course: $course</li>
+        <li>Enrolment Mode: $enrolmentMode</li>
+        <li>Comments: $comments</li>
       </ul>
       HTML;
       $altBody = "Non-HTML version of email should go here...";
