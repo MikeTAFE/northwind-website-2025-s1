@@ -12,4 +12,9 @@
 
 
   // Load Composer's autoloader (created by Composer, not included with PHPMailer)
-  require ROOT_DIR . "vendor/autoload.php";
+  require_once ROOT_DIR . "vendor/autoload.php";
+
+  // Include "secrets" that are not tracked by Git
+  require_once INCLUDES_DIR . "secrets.php";
+
+  
