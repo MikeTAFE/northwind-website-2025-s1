@@ -3,6 +3,9 @@
   // Common includes for main PHP pages (controllers)
   require_once "includes/common.php";
 
+  // Include email sending functionality
+  require_once INCLUDES_DIR . "emailHelpers.php";
+
   // Config
   $title = "Register";
 
@@ -73,18 +76,57 @@
       
     } else {
 
-      // Save to database
+      // Valid - do something with the data
 
-      // Send an email
+      /* 
+       * Option 1: Save to database
+       */
+
+
+      /* 
+       * Option 2: Send an email
+       */
+
+      // Build email
+      $toEmail = "michael.kirkwood-smith3@tafensw.edu.au";
+      $subject = "Northwind Website registration form submission";
+      $htmlBody = <<<HTML
+      <h1>Northwind Website registration form submission</h1>
+      <p>The Northwind Website registration form has been filled in.</p>
+      <ul>
+        <li>First Name: $htmlFirstName</li>
+        <li>Last Name: $htmlLastName</li>
+        <li>Email: $htmlEmail</li>
+        <li>Course: $htmlCourse</li>
+        <li>Enrolment Mode: $htmlEnrolmentMode</li>
+        <li>Comments: $htmlComments</li>
+      </ul>
+      HTML;
+      $altBody = "Non-HTML version of email should go here...";
+
+      // Send email
+      $emailSentSuccessfully = sendEmail($toEmail, $subject, $htmlBody, $altBody);
+
+      // Optional: Do something different if the email sending fails
+
+
+      /* 
+       * Option 3: Display confirmation message
+       */
 
       // Valid - display confirmation
       include_once "templates/_registerConfirmation.html.php";
 
-      // OPTIONAL: Redirect to another page
+
+      /* 
+       * Option 4: Redirect to another page
+       */
+
       // Remember the exit with the "Location" header!
       // If you want to pass data to the redirected page, use a query string (?firstName=Mike) or the $_SESSION array
       // header("Location: someConfirmationPage.php");
       // exit;
+
     }
 
   } else {
