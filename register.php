@@ -110,7 +110,19 @@
         <li>Comments: $comments</li>
       </ul>
       HTML;
-      $altBody = "Non-HTML version of email should go here...";
+      $altBody = <<<TEXT
+      Northwind Website registration form submission
+
+      The Northwind Website registration form has been filled in.
+
+      - First Name: $firstName
+      - Last Name: $lastName
+      - Email: $email
+      - Course: $course
+      - Enrolment Mode: $enrolmentMode
+      - Comments: $comments
+
+      TEXT;
 
       // Send email
       $emailSentSuccessfully = sendEmail($toEmail, $subject, $htmlBody, $altBody);
