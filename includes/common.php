@@ -17,4 +17,9 @@
   // Include "secrets" that are not tracked by Git
   require_once INCLUDES_DIR . "secrets.php";
 
+  // Database connection (create DBAccess instance in the $db variable)
+  require_once INCLUDES_DIR . "database.php";
+
+  // Open the database connection
+  $db->connect();
   
