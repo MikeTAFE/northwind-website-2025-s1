@@ -4,26 +4,14 @@
 
 <h3>Top 6 products under $20</h3>
 
-<?php if (empty($productsUnder20)): ?>
-  
-  <p>No products.</p>
+<?php
+  $products = $productsUnder20;
+  include "_products.html.php";
+?>
 
-<?php else: ?>
+<h3>Top 6 products over $50</h3>
 
-  <ul class="product-list">
-
-    <?php foreach ($productsUnder20 as $product): ?>
-
-      <li class="product">
-        <a href="#" class="product__link">
-          <h4 class="product__name"><?= $product["ProductName"] ?></h4>
-          <p class="product__price"><?= sprintf('$%1.2f', $product["UnitPrice"]) ?></p>
-          <p class="product__unit-quantity"><?= $product["QuantityPerUnit"] ?></p>
-        </a>
-      </li>
-
-    <?php endforeach ?>
-
-  </ul>
-
-<?php endif ?>
+<?php
+  $products = $productsOver50;
+  include "_products.html.php";
+?>

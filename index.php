@@ -31,6 +31,24 @@
   // Execute query (get the list of products under $20)
   $productsUnder20 = $db->executeSQL($stmt);
 
+  /*
+   * Search for products > $50
+   */
+
+  // Define SQL query
+  $sql = <<<SQL
+    SELECT	ProductID, ProductName, UnitPrice, QuantityPerUnit
+    FROM	  products
+    WHERE   UnitPrice > 50
+    LIMIT   0, 6
+  SQL;
+
+  // Prepare the statement
+  $stmt = $db->prepareStatement($sql);
+
+  // Execute query (get the list of products over $50)
+  $productsOver50 = $db->executeSQL($stmt);
+
   // Include the page-specific template
   include_once "templates/_indexPage.html.php";
 
