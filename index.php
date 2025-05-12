@@ -23,7 +23,7 @@
   SQL;
 
   // Prepare the statement
-    $stmt = $db->prepareStatement($sql);
+  $stmt = $db->prepareStatement($sql);
 
   // Bind values (if needed)
   // $stmt->bindValue(":categoryId", $categoryId, PDO::PARAM_INT);

@@ -149,3 +149,59 @@ button {
 }
 
 
+/* Product list */
+
+.product-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px 10px;
+}
+
+.product-list > * {
+  flex-basis: 200px;
+}
+
+
+/* Product cards */
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.product__link {
+  flex-grow: 1;
+  padding: 1em;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product__link:hover {
+  text-decoration: none;
+  background-color: #00aced22;
+  color: inherit;
+}
+
+.product__name {
+  margin: 0 0 0.8em;
+  font-size: 1em;
+  font-weight: normal;
+  color: #00aced;
+}
+
+.product__price {
+  margin: 0.5em 0;
+}
+
+.product__unit-quantity {
+  margin: 0.5em 0;
+}
+
+
