@@ -205,3 +205,17 @@ button {
 }
 
 
+/* Product details */
+
+table.product-details :is(th, td) {
+  padding: 0.3em 0.6em;
+}
+
+table.product-details th {
+  text-align: left;
+  font-weight: normal;
+  background-color: #ff690c;
+  color: white;
+}
+
+

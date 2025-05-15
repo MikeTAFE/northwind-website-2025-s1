@@ -36,6 +36,9 @@
     // Execute query
     $product = $db->executeSQL($stmt);
 
+    // Extract the first and only row
+    $product = $product[0];
+
     // Include the page-specific template
     include_once TEMPLATES_DIR . "_productPage.html.php";
 
