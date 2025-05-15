@@ -22,7 +22,8 @@
     $dbServer = "localhost";
     $dbDatbase = "navy31_northwind";
     $dbUsername = "navy31_northwind";
-    $dbPassword = "c5dBiSl3?Kywx0#n";
+    // $dbPassword = "c5dBiSl3?Kywx0#n";
+    $dbPassword = REMOTE_DB_PASSWORD;  // Loading from secrets.php
 
   }
 
