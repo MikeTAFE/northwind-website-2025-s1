@@ -1,0 +1,5 @@
+<h2>About Northwind</h2>
+
+<p>At Northwind Traders, we believe food should inspire — bringing people together, telling stories, and creating unforgettable experiences. Since our founding, we've dedicated ourselves to sourcing and delivering premium specialty and organic foods from around the globe. Whether it's a rare spice from Southeast Asia or a handcrafted olive oil from a small Mediterranean farm, every product we offer reflects our commitment to quality, authenticity, and sustainability.</p>
+
+<p>Based in the vibrant city of Seattle, we've grown from a local supplier into a trusted global partner for retailers, restaurants, and gourmet markets. What sets us apart is more than just our catalog — it's our passion for the craft, our dedication to our partners, and our belief that exceptional food starts with strong relationships. With Northwind, you're not just stocking shelves — you're sharing stories, elevating meals, and connecting with a world of flavor.</p>
