@@ -36,11 +36,22 @@
     // Execute query
     $product = $db->executeSQL($stmt);
 
-    // Extract the first and only row
-    $product = $product[0];
+    // Check if product does NOT exist (no rows returned)
+    if (empty($product)) {
 
-    // Include the page-specific template
-    include_once TEMPLATES_DIR . "_productPage.html.php";
+      // Display error
+      $errorMessage = "Product doesn't exist.";
+      include TEMPLATES_DIR . "_error.html.php";
+
+    } else {
+      
+      // Extract the first and only row
+      $product = $product[0];
+
+      // Include the page-specific template
+      include_once TEMPLATES_DIR . "_productPage.html.php";
+
+    }
 
   } else {
 
