@@ -4,6 +4,7 @@
   $navLinks = [
     // "page.php" => "Nav Title",
     "index.php" => "Home",
+    "about.php" => "About",
     "services.php" => "Services",
     "register.php" => "Register",
   ];
