@@ -3,3 +3,6 @@
 
 # Ignore the `/includes/secrets.php` file (normally you'd use a `.env` file)
 /includes/secrets.php
+
+# Ignore VS Code config
+/.vscode/
