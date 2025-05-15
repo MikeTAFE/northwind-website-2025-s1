@@ -22,4 +22,15 @@
 
   // Open the database connection
   $db->connect();
+
+
+  /**
+   * Escapes a value for safe usage in HTML. Wrapper for `htmlspecialchars()`.
+   *
+   * @param string|integer $valueToEscapeForHtml The value to escape for HTML usage
+   * @return string An HTML-encoded value
+   */
+  function esc(string|int $valueToEscapeForHtml): string {
+    return htmlspecialchars($valueToEscapeForHtml);
+  }
   
