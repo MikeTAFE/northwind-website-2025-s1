@@ -16,5 +16,6 @@ Make sure you create the `/includes/secrets.php` file that holds API keys and ot
 
 ```php
 define("SENDGRID_API_KEY", "xyz");
+define("REMOTE_DB_PASSWORD", "xyz");
 ```
 
