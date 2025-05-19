@@ -14,6 +14,10 @@
         <nav class="main-nav">
           <?php include "_navigation.html.php"; ?>
         </nav>
+        <form action="search.php" method="get" class="search">
+          <input type="search" name="search" class="search__input" aria-label="Product search">
+          <button type="submit" class="search__submit">Search</button>
+        </form>
       </div>
       <nav class="category-nav">
         <?php include "_categoryNavigation.html.php" ?>
