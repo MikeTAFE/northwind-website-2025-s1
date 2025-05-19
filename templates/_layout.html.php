@@ -15,6 +15,9 @@
           <?php include "_navigation.html.php"; ?>
         </nav>
       </div>
+      <nav class="category-nav">
+        <?php include "_categoryNavigation.html.php" ?>
+      </nav>
     </header>
     <main class="main-content">
 

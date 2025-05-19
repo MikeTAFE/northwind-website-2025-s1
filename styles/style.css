@@ -41,9 +41,16 @@ a:focus {
   color: #00aced;
 }
 
-.main-nav-container {}
 
-.main-nav > ul {
+/* Main navigation menus */
+
+.main-nav-container {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0;
+}
+
+:is(.main-nav, .category-nav) > ul {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -53,21 +60,34 @@ a:focus {
   list-style-type: none;
 }
 
-.main-nav > ul > li > a {
+.category-nav {
+  margin-bottom: 1em;
+}
+
+:is(.main-nav, .category-nav) > ul > li > a {
   display: inline-block;
   padding: 0.4em 0.8em;
   background-color: #00aced;
   color: white;
 }
 
-.main-nav > ul > li > a:is(:hover, :focus) {
+.category-nav > ul > li > a {
+  padding: 0.2em 0.4em;
+  background-color: #189193;
+}
+
+:is(.main-nav, .category-nav) > ul > li > a:is(:hover, :focus) {
   background-color: #0b6a8c;
   color: white;
   text-decoration: none;
 }
 
-.main-nav > ul > li.active > a {
-  border-bottom: 3px solid #ff690c;
+.category-nav > ul > li > a:is(:hover, :focus) {
+  background-color: #0d4748;
+}
+
+:is(.main-nav, .category-nav) > ul > li.active > a {
+  border-bottom: 3px solid #189193;
 }
 
 .main-content {
@@ -214,7 +234,7 @@ table.product-details :is(th, td) {
 table.product-details th {
   text-align: left;
   font-weight: normal;
-  background-color: #ff690c;
+  background-color: #189193;
   color: white;
 }
 
