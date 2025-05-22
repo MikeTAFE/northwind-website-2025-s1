@@ -225,6 +225,12 @@ button {
   margin: 0.5em 0;
 }
 
+.product__category {
+  margin-bottom: 0;
+  font-size: 0.85em;
+  color: #666;
+}
+
 
 /* Product details */
 

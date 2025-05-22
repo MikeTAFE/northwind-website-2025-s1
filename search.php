@@ -19,9 +19,11 @@
     
     // Search for products
     $sql = <<<SQL
-    SELECT	ProductID, ProductName, UnitPrice, QuantityPerUnit, UnitsInStock
-    FROM	  products
-    WHERE   ProductName LIKE :search
+      SELECT	ProductID, ProductName, UnitPrice, QuantityPerUnit, UnitsInStock, c.CategoryName
+      FROM	  products p
+        INNER JOIN categories c ON p.CategoryID = c.CategoryID
+      WHERE   ProductName LIKE :search
+        OR    CategoryName LIKE :search
     SQL;
 
     // Prepare the statement
