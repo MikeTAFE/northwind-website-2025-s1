@@ -108,7 +108,7 @@ a:focus {
 }
 
 
-
+/* Service list styling */
 
 .service-list dt {
   margin: 2em 0 0.5em;
@@ -121,6 +121,7 @@ a:focus {
 }
 
 
+/* Form styling */
 
 form fieldset {
   border: 1px solid #dfcaca;
@@ -236,6 +237,52 @@ table.product-details th {
   font-weight: normal;
   background-color: #189193;
   color: white;
+}
+
+
+/* Employee list */
+
+.employee-list {
+  list-style-type: none;
+  margin: 0 0 1em;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px 10px;
+}
+
+.employee-list > * {
+  flex-basis: 200px;
+  padding: 10px;
+}
+
+
+/* Employee card styling */
+
+.employee {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.employee__photo {
+  border-radius: 5px;
+}
+
+.employee__name {
+  margin: .8em 0;
+  font-size: 1em;
+  font-weight: normal;
+  color: #00aced;
+}
+
+.employee__title {
+  margin: 0 0 0.5em;
 }
 
 
