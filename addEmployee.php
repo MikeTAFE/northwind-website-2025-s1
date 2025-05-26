@@ -56,8 +56,33 @@
 
     // TODO: Validate Salary (valid float)
 
-    // TODO: Validate ReportsTo (valid employee ID)
+    // Validate ReportsTo (valid integer and employee ID exists in database)
+    if (filter_var($reportsTo, FILTER_VALIDATE_INT) === false) {
+      $errors["reportsTo"] = "Reports To ID must be an integer";
+    } else if ($reportsTo < 1) {
+      $errors["reportsTo"] = "Reports To ID must be greater than zero";
+    } else {
 
+      // Check if employee exists in database
+      $sql = <<<SQL
+        SELECT COUNT(*)
+        FROM employees
+        WHERE EmployeeID = :EmployeeID
+      SQL;
+
+      // Prepare the statement
+      $stmt = $db->prepareStatement($sql);
+
+      // Bind values (if needed)
+      $stmt->bindValue(":EmployeeID", $reportsTo, PDO::PARAM_INT);
+      
+      // Check if employee ID is in the database using COUNT(*)
+      $employeeCount = $db->executeSQLReturnOneValue($stmt);
+
+      if ($employeeCount < 1) {
+        $errors["reportsTo"] = "Reports To ID doesn't exist";
+      }
+    }
 
     // Check if we have errors (invalid data)
     if (count($errors) > 0) {
@@ -69,7 +94,7 @@
 
       // Valid - add the employee to the database
 
-      // TODO: Define SQL query
+      // Define SQL query
       $sql = <<<SQL
         INSERT INTO employees (LastName, FirstName, Title, TitleOfCourtesy, BirthDate, HireDate, Notes, ReportsTo, PhotoPath, Salary)
         VALUES (:LastName, :FirstName, :Title, :TitleOfCourtesy, :BirthDate, :HireDate, :Notes, :ReportsTo, :PhotoPath, :Salary)
