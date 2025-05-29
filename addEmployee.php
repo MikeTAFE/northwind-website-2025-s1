@@ -84,6 +84,69 @@
       }
     }
 
+
+    /* 
+     * Photo file upload
+     * Reference for the $_FILES array: https://www.php.net/manual/en/features.file-upload.post-method.php
+     */
+
+    // File upload settings
+    $targetDirectory = ROOT_DIR . "photos/";
+    $fileUploadOptional = false;
+
+    // Skip file upload if no file given and upload is optional
+    if (!($fileUploadOptional && $_FILES["photo"]["error"] === UPLOAD_ERR_NO_FILE)) {
+
+      // Get the filename of the uploaded file (what was it originally called?)
+      $fileName = basename($_FILES["photo"]["name"]);
+
+      // Make sure file is an image (using file extension)
+      $validExtensions = ["jpg", "jpeg", "gif", "png"];
+      $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
+
+      if (!in_array($fileExtension, $validExtensions)) {
+        $errors["photo"] = "Invalid file extension, must be: " . implode(", ", $validExtensions);
+      }
+      
+      // Check file size (not too big) using php.ini config and MAX_FILE_SIZE set in the form
+      // You can also manually check the ["size"] of the file
+      if (
+        $_FILES["photo"]["error"] === UPLOAD_ERR_FORM_SIZE ||
+        $_FILES["photo"]["error"] === UPLOAD_ERR_INI_SIZE
+      ) {
+        $errors["photo"] = "File is too large.";
+      }
+
+      // NODO: Add other file upload validation
+
+      // Make sure there are no file errors detected
+      if (empty($errors["photo"])) {
+
+        // OPTIONAL: Change the file name
+        // $fileName = "xxxxx.$fileExtension";
+
+        $moveFrom = $_FILES["photo"]["tmp_name"];
+        $moveTo = $targetDirectory . $fileName;
+
+        // Move uploaded file from the temp location into the target location
+        if (move_uploaded_file($moveFrom, $moveTo)) {
+
+          // Success
+          $photoPath = $fileName;
+
+        } else {
+
+          // Error
+          $errors["photo"] = "Uploaded file could not be moved.";
+
+        }
+      }
+    }
+
+    /* 
+     * Check for errors and display results
+     */
+
     // Check if we have errors (invalid data)
     if (count($errors) > 0) {
 

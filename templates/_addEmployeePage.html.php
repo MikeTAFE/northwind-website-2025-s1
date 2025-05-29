@@ -11,7 +11,7 @@
 
 <?php include TEMPLATES_DIR . "_errorSummary.html.php" ?>
 
-<form action="addEmployee.php" method="post" novalidate>
+<form action="addEmployee.php" method="post" enctype="multipart/form-data" novalidate>
   <fieldset>
     <legend>Personal information</legend>
 
@@ -40,6 +40,13 @@
     <div class="form-row">
       <label for="dateOfBirth">Date of birth:</label>
       <input type="date" id="dateOfBirth" name="dateOfBirth" <?= setValue("dateOfBirth") ?>>
+    </div>
+
+    <div class="form-row">
+      <label for="photo">Photo:</label>
+      <!-- MAX_FILE_SIZE must precede the file input field -->
+      <input type="hidden" name="MAX_FILE_SIZE" value="<?= 100 * 1024 // 100KB ?>" />
+      <input type="file" id="photo" name="photo" <?= setValue("photo") ?>>
     </div>
 
   </fieldset>
