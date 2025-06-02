@@ -190,6 +190,33 @@ class Category
     
   }
 
+  /**
+   * Get the total number of categories (COUNT)
+   *
+   * @return int The number of categories
+   */
+  public function getNumberOfCategories(): int
+  {
+    try {
+      // Open database connection
+      $this->_db->connect();
+
+      // Define SQL query, prepare statement, bind parameters
+      $sql = <<<SQL
+        SELECT  COUNT(*)
+        FROM    Categories
+      SQL;
+      $stmt = $this->_db->prepareStatement($sql);
+
+      // Execute SQL
+      $value = $this->_db->executeSQLReturnOneValue($stmt);
+      return $value;
+
+    } catch (PDOException $ex) {
+      throw $ex;
+    }
+  }
+
   #endregion
 
 }
