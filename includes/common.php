@@ -9,7 +9,10 @@
   define("ROOT_DIR", __DIR__ . "/../");
   define("INCLUDES_DIR", ROOT_DIR . "includes/");
   define("TEMPLATES_DIR", ROOT_DIR . "templates/");
+  define("CLASSES_DIR", ROOT_DIR . "classes/");
 
+  // Load class definitions
+  require_once CLASSES_DIR . "Category.php";
 
   // Load Composer's autoloader (created by Composer, not included with PHPMailer)
   require_once ROOT_DIR . "vendor/autoload.php";
