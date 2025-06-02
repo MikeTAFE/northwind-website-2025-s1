@@ -13,7 +13,9 @@
           <h4 class="product__name"><?= $product["ProductName"] ?></h4>
           <p class="product__price"><?= sprintf('$%1.2f', $product["UnitPrice"]) ?></p>
           <p class="product__unit-quantity"><?= $product["QuantityPerUnit"] ?></p>
-          <p class="product__category">Category: <?= $product["CategoryName"] ?></p>
+          <?php if(!empty($product["CategoryName"])): ?>
+            <p class="product__category">Category: <?= $product["CategoryName"] ?></p>
+          <?php endif ?>
         </a>
       </li>
 
