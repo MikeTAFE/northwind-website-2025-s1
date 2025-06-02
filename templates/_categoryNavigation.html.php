@@ -12,6 +12,9 @@
   // Execute query
   $categories = $db->executeSQL($stmt);
 
+  // $category = new Category();
+  // $categories = $category->getCategories();
+
 ?>
 <ul>
   <?php foreach ($categories as $category): ?>
