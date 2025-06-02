@@ -1,20 +1,25 @@
 <?php
 
+/**
+ * Defines a Category (part of the business logic layer)
+ */
 class Category
 {
-  /*
-   * Private properties
-   */
+
+  #region Properties (private)
 
   private int $_categoryId;
   private string $_categoryName;
   private string $_description;
   private DBAccess $_db;
 
-  /*
-   * Constructor - sets up the database connection (using DBAccess)
-   */
+  #endregion
 
+  #region Constructor - sets up the database connection (using DBAccess)
+
+  /**
+   * Create Category instance with database connection
+   */
   public function __construct()
   {
     // Create database connection and store into _db property (so other methods can use DBAccess)
@@ -22,21 +27,37 @@ class Category
     $this->_db = $db;
   }
 
-  /*
-   * Getter and setter methods
-   */
+  #endregion
+  
+  #region Getter and setter methods
 
+  /**
+   * Get category ID (there is NO setter for category ID to make it read-only)
+   *
+   * @return int The category ID
+   */
   public function getCategoryId(): int
   {
     return $this->_categoryId;
   }
 
+  /**
+   * Get category name
+   *
+   * @return string The category name
+   */
   public function getCategoryName(): string
   {
     // Return value of private property
     return $this->_categoryName;
   }
 
+  /**
+   * Set category name
+   *
+   * @param  string $categoryName The new category name
+   * @return void
+   */
   public function setCategoryName(string $categoryName): void
   {
     // Remove spaces
@@ -53,24 +74,39 @@ class Category
     $this->_categoryName = $value;
   }
 
+  /**
+   * Get category description
+   *
+   * @return string The category description
+   */
   public function getDescription(): string
   {
     // Return value of private property
     return $this->_description;
   }
-
+    
+  /**
+   * Set description
+   *
+   * @param  string $description The new description
+   * @return void
+   */
   public function setDescription(string $description): void
   {
     // Store new value in the private property
     $this->_description = $description;
   }
 
+  #endregion
 
+  #region Methods
 
-  /*
-   * Other methods
+  /**
+   * Get a category by ID and populate the object's properties
+   *
+   * @param  int $id The ID of the category to get
+   * @return void
    */
-
   public function getCategory(int $id): void
   {
     try {
@@ -123,6 +159,11 @@ class Category
     
   }
 
+  /**
+   * Get all categories
+   *
+   * @return array The collection of categories
+   */
   public function getCategories(): array
   {
     try {
@@ -148,5 +189,7 @@ class Category
     }
     
   }
+
+  #endregion
 
 }
