@@ -1,23 +1,37 @@
 <?php
 
+/* 
+  
+  NOTE: When using this business object in a "real" webpage using user-supplied data:
+
+  1. Get data from the user
+  2. Validation (and sanitisation) - in the class or using FormValidator
+  3. Image upload logic (if you have images)
+  4. Create new object (from business object class)
+  5. Assign property values, e.g. $object->setProperty("value")
+  6. Insert/update into database
+  7. Get new ID (if inserting) and display message to user
+
+ */
+
 // Common includes such as class definitions and constants
 require_once "includes/common.php";
 
 try
 {
 
-  // // Create new object instance (using the constructor)
-  // $category = new Category();
+  // Create new object instance (using the constructor)
+  $category = new Category();
 
-  // // Get a category from the database by its ID (load object properties)
-  // $category->getCategory(5);
+  // Get a category from the database by its ID (load object properties)
+  $category->getCategory(5);
 
-  // // $category->setCategoryName("   ");
+  // $category->setCategoryName("   ");
 
-  // // Print category info
-  // echo <<<HTML
-  // <p>Name: {$category->getCategoryName()}, Description: {$category->getDescription()}</p>
-  // HTML;
+  // Print category info
+  echo <<<HTML
+  <p>Name: {$category->getCategoryName()}, Description: {$category->getDescription()}</p>
+  HTML;
 
 
   /* 
@@ -62,20 +76,20 @@ try
    * TESTING: Deleting a category 
    */
 
-  // Get category from database, change its data, update in the datbase
-  $categoryIdToDelete = 9;
-  $category = new Category();
-  $deleteSuccess = $category->deleteCategory($categoryIdToDelete);
+  // // Get category from database, change its data, update in the datbase
+  // $categoryIdToDelete = 9;
+  // $category = new Category();
+  // $deleteSuccess = $category->deleteCategory($categoryIdToDelete);
 
-  if ($deleteSuccess) {
-    echo <<<HTML
-    <p>✔ Category deleted successfully: {$categoryIdToDelete}</p>
-    HTML;
-  } else {
-    echo <<<HTML
-    <p>☠ Category delete failed: {$categoryIdToDelete}</p>
-    HTML;
-  }
+  // if ($deleteSuccess) {
+  //   echo <<<HTML
+  //   <p>✔ Category deleted successfully: {$categoryIdToDelete}</p>
+  //   HTML;
+  // } else {
+  //   echo <<<HTML
+  //   <p>☠ Category delete failed: {$categoryIdToDelete}</p>
+  //   HTML;
+  // }
 
 } catch (Exception $ex) {
 
