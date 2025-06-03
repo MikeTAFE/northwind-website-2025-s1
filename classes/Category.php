@@ -118,10 +118,10 @@ class Category
       $sql = <<<SQL
         SELECT  CategoryID, CategoryName, Description
         FROM    categories
-        WHERE   CategoryID = :categoryId
+        WHERE   CategoryID = :CategoryId
       SQL;
       $stmt = $this->_db->prepareStatement($sql);
-      $stmt->bindValue(":categoryId", $id, PDO::PARAM_INT);
+      $stmt->bindValue(":CategoryId", $id, PDO::PARAM_INT);
 
       // Get data from database
       $rows = $this->_db->executeSQL($stmt);
@@ -213,6 +213,102 @@ class Category
       return $value;
 
     } catch (PDOException $ex) {
+      throw $ex;
+    }
+  }
+
+  /**
+   * Add a category using values in object's properties
+   *
+   * @return integer The ID of the new category
+   */
+  public function insertCategory(): int
+  {
+    try {
+
+      // NODO: Add validation to make sure data is OK before inserting into database
+      
+      // Open the database connection
+      $this->_db->connect();
+
+      // Define query, prepare statement, bind parameters
+      $sql = <<<SQL
+        INSERT INTO categories (CategoryName, Description)
+        VALUES (:CategoryName, :Description)
+      SQL;
+      $stmt = $this->_db->prepareStatement($sql);
+      $stmt->bindValue(":CategoryName", $this->_categoryName, PDO::PARAM_STR);
+      $stmt->bindValue(":Description", $this->_description, PDO::PARAM_STR);
+
+      // Execute query and return new ID
+      // true means return the new ID (primary key value)
+      return $this->_db->executeNonQuery($stmt, true);
+
+    } catch (Exception $ex) {
+      throw $ex;
+    }
+  }
+
+  /**
+   * Update a category using values in object's properties
+   *
+   * @param integer $id The current ID of the category to update
+   * @return bool True if update successful
+   */
+  public function updateCategory(int $id): bool
+  {
+    try {
+
+      // NODO: Add validation to make sure data is OK before updating the database
+      
+      // Open the database connection
+      $this->_db->connect();
+
+      // Define query, prepare statement, bind parameters
+      $sql = <<<SQL
+        UPDATE 	categories
+        SET 	  CategoryName = :CategoryName, Description = :Description
+        WHERE 	CategoryID = :CategoryID
+      SQL;
+      $stmt = $this->_db->prepareStatement($sql);
+      $stmt->bindValue(":CategoryID", $id, PDO::PARAM_INT);
+      $stmt->bindValue(":CategoryName", $this->_categoryName, PDO::PARAM_STR);
+      $stmt->bindValue(":Description", $this->_description, PDO::PARAM_STR);
+
+      // Execute query and return success value (true/false)
+      return $this->_db->executeNonQuery($stmt);
+
+    } catch (Exception $ex) {
+      throw $ex;
+    }
+  }
+
+  /**
+   * Delete a category by ID
+   *
+   * @param integer $id The ID of the category to delete
+   * @return bool True if delete successful
+   */
+  public function deleteCategory(int $id): bool
+  {
+    try {
+      
+      // Open the database connection
+      $this->_db->connect();
+
+      // Define query, prepare statement, bind parameters
+      $sql = <<<SQL
+        DELETE
+        FROM 	  categories
+        WHERE 	CategoryID = :CategoryID
+      SQL;
+      $stmt = $this->_db->prepareStatement($sql);
+      $stmt->bindValue(":CategoryID", $id, PDO::PARAM_INT);
+
+      // Execute query and return success value (true/false)
+      return $this->_db->executeNonQuery($stmt);
+
+    } catch (Exception $ex) {
       throw $ex;
     }
   }
