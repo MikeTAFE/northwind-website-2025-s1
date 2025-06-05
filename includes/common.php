@@ -13,6 +13,9 @@
 
   // Load class definitions
   require_once CLASSES_DIR . "Category.php";
+  require_once CLASSES_DIR . "Product.php";
+  require_once CLASSES_DIR . "ShoppingCart.php";
+  require_once CLASSES_DIR . "CartItem.php";
 
   // Load Composer's autoloader (created by Composer, not included with PHPMailer)
   require_once ROOT_DIR . "vendor/autoload.php";
@@ -25,6 +28,15 @@
 
   // Open the database connection
   $db->connect();
+
+
+  // Start session (if it's not already started)
+  if (!isset($_SESSION)) {
+    session_start();
+  }
+
+  // Get the shopping cart from the session
+  $cart = $_SESSION["cart"] ?? new ShoppingCart();
 
 
   /**
