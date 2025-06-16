@@ -13,7 +13,7 @@
 
 <?php include TEMPLATES_DIR . "_errorSummary.html.php" ?>
 
-<form action="register.php" method="post" novalidate>
+<form id="register-form" action="register.php" method="post" novalidate>
   <fieldset>
     <legend>Personal information</legend>
 
@@ -85,3 +85,21 @@
     </div>
   </fieldset>
 </form>
+
+
+<!-- 1. Include the jQuery library -->
+<script 
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+
+<!-- 2. Include jQuery plugin resources -->
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+<!-- 3. Include your own custom JS code (that uses the jQuery plugin) -->
+<script>
+
+  // Activate/initialise validation for the form
+  $("#register-form").validate()
+
+</script>
