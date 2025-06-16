@@ -32,5 +32,18 @@
       <p class="copyright">Copyright &copy;<?= date('Y') ?> Northwind</p>
     </footer>
   </div>
+
+  
+  <!-- 1. Include the jQuery library -->
+  <script 
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+
+  <!-- 2. Include jQuery plugin resources -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+  <!-- 3. Include your own custom JS code (that uses the jQuery plugin) -->
+  <?= $footerScripts ?? '' ?>
 </body>
 </html>
