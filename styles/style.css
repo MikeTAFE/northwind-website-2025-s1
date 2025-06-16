@@ -169,6 +169,13 @@ button {
   font-style: italic;
 }
 
+label.error {
+  margin-left: 0.5em;
+  color: #8f0808;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
 
 /* Product list */
 

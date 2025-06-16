@@ -53,7 +53,10 @@
     </div>
 
     <div class="form-row">
-      <p>Enrolment mode:</p>
+      <p>
+        Enrolment mode:
+        <label class="error" for="enrolmentMode"></label>
+      </p>
       <label>
         <input type="radio" name="enrolmentMode" value="ft" <?= setChecked("enrolmentMode", "ft") ?>>
         Full-time
@@ -77,6 +80,7 @@
     <div class="form-row">
       <input type="checkbox" name="terms" id="terms" value="yes" <?= setChecked("terms", "yes") ?>>
       <label for="terms">Agree to terms &amp; conditions</label>
+      <label for="terms" class="error"></label>
     </div>
 
     <div class="form-row">
@@ -86,20 +90,6 @@
   </fieldset>
 </form>
 
-
-<!-- 1. Include the jQuery library -->
-<script 
-  src="https://code.jquery.com/jquery-3.7.1.min.js"
-  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-  crossorigin="anonymous"></script>
-
-<!-- 2. Include jQuery plugin resources -->
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-
-<!-- 3. Include your own custom JS code (that uses the jQuery plugin) -->
-<script>
-
-  // Activate/initialise validation for the form
-  $("#register-form").validate()
-
-</script>
+<?php $footerScripts = <<<HTML
+  <script src="scripts/registerPageValidation.js"></script>
+HTML;
