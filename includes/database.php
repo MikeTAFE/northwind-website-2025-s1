@@ -12,7 +12,7 @@
 
     // Database config - local
     $dbServer = "localhost";
-    $dbDatbase = "northwind";
+    $dbDatabase = "northwind";
     $dbUsername = "root";
     $dbPassword = "";
 
@@ -20,7 +20,7 @@
 
     // Database config - remote
     $dbServer = "localhost";
-    $dbDatbase = "navy31_northwind";
+    $dbDatabase = "navy31_northwind";
     $dbUsername = "navy31_northwind";
     // $dbPassword = "c5dBiSl3?Kywx0#n";
     $dbPassword = REMOTE_DB_PASSWORD;  // Loading from secrets.php
@@ -28,4 +28,4 @@
   }
 
   // Create a new DBAccess instance (this is used for ALL database operations!)
-  $db = new DBAccess($dbServer, $dbDatbase, $dbUsername, $dbPassword);
+  $db = new DBAccess($dbServer, $dbDatabase, $dbUsername, $dbPassword);
